@@ -24,6 +24,7 @@ public class EchoServer {
             System.err.println("Accept failed.");
             System.exit(1);
         }
+        //consumir http
         PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(

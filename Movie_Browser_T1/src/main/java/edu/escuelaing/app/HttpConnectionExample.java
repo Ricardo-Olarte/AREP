@@ -3,18 +3,19 @@ package edu.escuelaing.app;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class HttpConnectionExample {
 
     private static final String USER_AGENT = "Mozilla/5.0";
-    private static final String GET_URL = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=fb&apikey=Q1QZFVJQ21K7C6XM";
+    private static final String GET_URL = "http://www.omdbapi.com/?t=";
+    private static final String API_KEY = "&apikey=e0993287";
 
-    public static void main(String[] args) throws IOException {
+    public String service(String movie) throws IOException {
 
-        URL obj = new URL(GET_URL);
+        String expectedResponds = "";
+        URL obj = new URL(GET_URL + movie + API_KEY);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
         con.setRequestMethod("GET");
         con.setRequestProperty("User-Agent", USER_AGENT);
@@ -35,11 +36,17 @@ public class HttpConnectionExample {
             in.close();
 
             // print result
-            System.out.println(response.toString());
+            //System.out.println(response.toString());
+
+            expectedResponds = response.toString();
+
         } else {
-            System.out.println("GET request not worked");
+            expectedResponds = "The server its failed";
+            System.out.println(expectedResponds);
         }
         System.out.println("GET DONE");
+
+        return expectedResponds;
     }
 
 }
