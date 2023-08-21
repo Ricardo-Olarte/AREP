@@ -68,7 +68,18 @@ public class HttpServer {
         HttpConnectionExample movie = new HttpConnectionExample();
         try {
             //System.out.println(movie.service(uri));
-            return movie.service(uri).toString();
+
+            return "HTTP/1.1 200 OK\r\n"
+                    + "Content-type: text/html\r\n"
+                    + "\r\n"
+                    + "<!DOCTYPE html>\n"
+                    + "<html>\n"
+                    + "<div>\n"
+                    + "<p>"
+                    + movie.service(uri)
+                    + "</p>\n"
+                    + "</div>\n"
+                    + "</html>";
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -90,7 +101,7 @@ public class HttpServer {
                 + "        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
                 + "    </head>\n"
                 + "    <body>\n"
-                + "        <h1>Form with GET</h1>\n"
+                + "        <h1>Name the movie</h1>\n"
                 + "        <form action=\"/hello\">\n"
                 + "            <label for=\"name\">Name:</label><br>\n"
                 + "            <input type=\"text\" id=\"name\" name=\"name\" value=\"John\"><br><br>\n"
@@ -110,23 +121,6 @@ public class HttpServer {
                 + "            }\n"
                 + "        </script>\n"
                 + "\n"
-                + "        <h1>Form with POST</h1>\n"
-                + "        <form action=\"/hellopost\">\n"
-                + "            <label for=\"postname\">Name:</label><br>\n"
-                + "            <input type=\"text\" id=\"postname\" name=\"name\" value=\"John\"><br><br>\n"
-                + "            <input type=\"button\" value=\"Submit\" onclick=\"loadPostMsg(postname)\">\n"
-                + "        </form>\n"
-                + "        \n"
-                + "        <div id=\"postrespmsg\"></div>\n"
-                + "        \n" + "        <script>\n"
-                + "            function loadPostMsg(name){\n"
-                + "                let url = \"/hellopost?name=\" + name.value;\n"
-                + "\n"
-                + "                fetch (url, {method: 'POST'})\n"
-                + "                    .then(x => x.text())\n"
-                + "                    .then(y => document.getElementById(\"postrespmsg\").innerHTML = y);\n"
-                + "            }\n"
-                + "        </script>\n"
                 + "    </body>\n"
                 + "</html>";
         return response;
