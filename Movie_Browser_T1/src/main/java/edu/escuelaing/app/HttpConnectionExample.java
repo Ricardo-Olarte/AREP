@@ -9,13 +9,14 @@ import java.net.URL;
 public class HttpConnectionExample {
 
     private static final String USER_AGENT = "Mozilla/5.0";
-    private static final String GET_URL = "http://www.omdbapi.com/?t=";
+    private static final String GET_URL = "http://www.omdbapi.com";
     private static final String API_KEY = "&apikey=e0993287";
 
     public String service(String movie) throws IOException {
 
         String expectedResponds = "";
         URL obj = new URL(GET_URL + movie + API_KEY);
+        System.out.println(obj.toString());
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
         con.setRequestMethod("GET");
         con.setRequestProperty("User-Agent", USER_AGENT);
@@ -45,8 +46,7 @@ public class HttpConnectionExample {
             System.out.println(expectedResponds);
         }
         System.out.println("GET DONE");
-
+        //System.out.println(expectedResponds);
         return expectedResponds;
     }
-
 }
