@@ -3,7 +3,10 @@ package edu.escuelaing.app;
 import java.net.*;
 import java.io.*;
 
-/**/
+/*
+* It's http server, where connect in the localhost since your browser
+* @author Luis Benavides
+* */
 public class HttpServer {
     public static void main(String[] args) throws IOException {
         ServerSocket serverSocket = null;
@@ -56,16 +59,25 @@ public class HttpServer {
         serverSocket.close();
     }
 
+    /**
+     * Get information about the movie with a JSON string
+     * @param uri
+     * @return String uri
+     */
     public static String getHello(String uri){
         HttpConnectionExample movie = new HttpConnectionExample();
         try {
-            System.out.println(movie.service(uri));
-            return "{ \"msg\": \"Hello " + "\"}";
+            //System.out.println(movie.service(uri));
+            return movie.service(uri).toString();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public static  String indexResponse(){
         String response = "HTTP/1.1 200 OK\r\n"
                 + "Content-type: text/html\r\n"

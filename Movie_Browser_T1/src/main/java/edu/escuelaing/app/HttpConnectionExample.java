@@ -6,17 +6,29 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+/*
+* Code the professor class
+* It´s a connection HTTP
+* Has a API and URL, construct them
+* @author Luis Benavides
+* */
 public class HttpConnectionExample {
 
     private static final String USER_AGENT = "Mozilla/5.0";
     private static final String GET_URL = "http://www.omdbapi.com";
     private static final String API_KEY = "&apikey=e0993287";
 
+    /**
+     * Build a URL with the API for get information about the movie
+     * @param movie
+     * @return String, expectedResponds, it´s a JSON string
+     * @throws IOException
+     */
     public String service(String movie) throws IOException {
 
         String expectedResponds = "";
-        URL obj = new URL(GET_URL + movie + API_KEY);
-        System.out.println(obj.toString());
+        URL obj = new URL(GET_URL + movie.replace(" ","+") + API_KEY);
+        //System.out.println(obj.toString());
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
         con.setRequestMethod("GET");
         con.setRequestProperty("User-Agent", USER_AGENT);
