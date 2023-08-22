@@ -23,3 +23,7 @@ Abriendo desde el browser consultamos localhost:42800
    URL https://github.com/Ricardo-Olarte/AREP/tree/main/Movie_Browser_T1
 2. Ejecutamos HTTP server y abrimos nuestro browser
 3. En el espacio ponemos el nombre de la película. NOTA: El nombre debe ser inglés
+
+
+### Circle CI
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/Ricardo-Olarte/AREP/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/Ricardo-Olarte/AREP/tree/main)
