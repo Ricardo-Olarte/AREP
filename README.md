@@ -1,5 +1,7 @@
-# Buscador de películas
+# Repositorio AREP
+Arquitectura Empresarial
 ## Elaborado por:
 Jose Ricardo Olarte Pardo
 
-### Diseño de la Arquitectura
+### Dirigido por:
+Luis Benavides
