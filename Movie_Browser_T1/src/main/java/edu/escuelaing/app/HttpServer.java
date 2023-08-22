@@ -76,7 +76,7 @@ public class HttpServer {
             //System.out.println(movie.service(uri));
             //System.out.println(json);
             for(String keyInfo : infoMovie){
-                htmlBody += keyInfo.replace("\"","") + "\n";
+                htmlBody += keyInfo.replace("\"","") + "<br/>";
             }
             //System.out.println(htmlBody);
             return htmlFirst + htmlBody + htmlSecond;
@@ -100,12 +100,17 @@ public class HttpServer {
                 + "        <meta charset=\"UTF-8\">\n"
                 + "        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
                 + "    </head>\n"
+                + "    <style>\n"
+                + "    body {background-color: black;color: white}"
+                + "    button{" +
+                "background-color: white;padding:4px 6px;border-radius:8px}"
+                + "    </style>\n"
                 + "    <body>\n"
                 + "        <h1><center>Name of the movie</center></h1>\n"
                 + "        <form action=\"/hello\">\n"
                 + "            <label for=\"name\">Name:</label><br>\n"
                 + "            <input type=\"text\" id=\"name\" name=\"name\" value=\"\"><br><br>\n"
-                + "            <input type=\"button\" value=\"Submit\" onclick=\"loadGetMsg()\">\n"
+                + "            <button type=\"submit\" onclick=\"loadGetMsg()\">Submit</button>\n"
                 + "        </form> \n"
                 + "        <div id=\"getrespmsg\"></div>\n"
                 + "\n"
