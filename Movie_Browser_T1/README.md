@@ -19,7 +19,7 @@ Para consultar desde local
 > localhost:42800
 
 Abriendo desde el browser consultamos localhost:42800
-1. Clonamos el repositorio indicado de la siguiente URL https://github.com/Ricardo-Olarte/AREP/tree/main/Movie_Browser_T1
+1. Clonamos el repositorio indicado de la siguiente
+   URL https://github.com/Ricardo-Olarte/AREP/tree/main/Movie_Browser_T1
 2. Ejecutamos HTTP server y abrimos nuestro browser
 3. En el espacio ponemos el nombre de la película. NOTA: El nombre debe ser inglés
-
