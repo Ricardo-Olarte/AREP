@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.HashMap;
 
 /*
 * Code the professor class
@@ -17,6 +18,7 @@ public class HttpConnectionExample {
     private static final String USER_AGENT = "Mozilla/5.0";
     private static final String GET_URL = "http://www.omdbapi.com";
     private static final String API_KEY = "&apikey=e0993287";
+    private static final HashMap<String,String> CACHE = new HashMap<>();
 
     /**
      * Build a URL with the API for get information about the movie
@@ -26,6 +28,9 @@ public class HttpConnectionExample {
      */
     public String service(String movie) throws IOException {
 
+        if(CACHE.containsKey(movie)){
+            return CACHE.get(movie);
+        }
         String expectedResponds = "";
         URL obj = new URL(GET_URL + movie.replace(" ","+") + API_KEY);
         //System.out.println(obj.toString());
@@ -58,7 +63,9 @@ public class HttpConnectionExample {
             System.out.println(expectedResponds);
         }
         System.out.println("GET DONE");
-        //System.out.println(expectedResponds);
+        CACHE.put(movie,expectedResponds);
+        //System.out.println(CACHE);
+        // System.out.println(expectedResponds);
         return expectedResponds;
     }
 }

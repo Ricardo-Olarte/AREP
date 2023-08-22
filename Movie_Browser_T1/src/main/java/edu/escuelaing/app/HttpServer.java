@@ -2,6 +2,7 @@ package edu.escuelaing.app;
 
 import java.net.*;
 import java.io.*;
+import java.util.HashMap;
 
 /*
 * It's http server, where connect in the localhost since your browser
@@ -66,20 +67,12 @@ public class HttpServer {
      */
     public static String getHello(String uri){
         HttpConnectionExample movie = new HttpConnectionExample();
+        String htmlFirst = "HTTP/1.1 200 OK\r\n" + "Content-type: text/html\r\n" + "\r\n" + "<!DOCTYPE html>\n" + "<html>\n" + "<div>\n" + "<p>";
+        String htmlSecond = "</p>\n" + "</div>\n" + "</html>";
         try {
             //System.out.println(movie.service(uri));
-
-            return "HTTP/1.1 200 OK\r\n"
-                    + "Content-type: text/html\r\n"
-                    + "\r\n"
-                    + "<!DOCTYPE html>\n"
-                    + "<html>\n"
-                    + "<div>\n"
-                    + "<p>"
-                    + movie.service(uri)
-                    + "</p>\n"
-                    + "</div>\n"
-                    + "</html>";
+            String json = movie.service(uri);
+            return htmlFirst + json + htmlSecond;
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -96,15 +89,15 @@ public class HttpServer {
                 + "<!DOCTYPE html>\n"
                 + "<html>\n"
                 + "    <head>\n"
-                + "        <title>Form Example</title>\n"
+                + "        <title>T1</title>\n"
                 + "        <meta charset=\"UTF-8\">\n"
                 + "        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
                 + "    </head>\n"
                 + "    <body>\n"
-                + "        <h1>Name the movie</h1>\n"
+                + "        <h1><center>Name of the movie</center></h1>\n"
                 + "        <form action=\"/hello\">\n"
                 + "            <label for=\"name\">Name:</label><br>\n"
-                + "            <input type=\"text\" id=\"name\" name=\"name\" value=\"John\"><br><br>\n"
+                + "            <input type=\"text\" id=\"name\" name=\"name\" value=\"\"><br><br>\n"
                 + "            <input type=\"button\" value=\"Submit\" onclick=\"loadGetMsg()\">\n"
                 + "        </form> \n"
                 + "        <div id=\"getrespmsg\"></div>\n"
