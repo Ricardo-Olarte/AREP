@@ -2,7 +2,6 @@ package edu.escuelaing.app;
 
 import java.net.*;
 import java.io.*;
-import java.util.HashMap;
 
 /*
 * It's http server, where connect in the localhost since your browser
@@ -21,7 +20,7 @@ public class HttpServer {
         while(running) {
             Socket clientSocket = null;
             try {
-                System.out.println("Listo para recibir ...");
+                System.out.println("Ready to receive ...");
                 clientSocket = serverSocket.accept();
             } catch (IOException e) {
                 System.err.println("Accept failed.");
@@ -67,19 +66,27 @@ public class HttpServer {
      */
     public static String getHello(String uri){
         HttpConnectionExample movie = new HttpConnectionExample();
-        String htmlFirst = "HTTP/1.1 200 OK\r\n" + "Content-type: text/html\r\n" + "\r\n" + "<!DOCTYPE html>\n" + "<html>\n" + "<div>\n" + "<p>";
+        String htmlFirst = "HTTP/1.1 200 OK\r\n" + "Content-type: text/html\r\n" + "\r\n" + "<!DOCTYPE html>\n" + "<html>\n" + "<div>\n" + "<p>\n";
         String htmlSecond = "</p>\n" + "</div>\n" + "</html>";
         try {
+            String json = movie.service(uri).replace("{", "").replace("}", "");
+            String[] infoMovie = json.split(",");
+            String htmlBody = "";
+            //System.out.println(uri);
             //System.out.println(movie.service(uri));
-            String json = movie.service(uri);
-            return htmlFirst + json + htmlSecond;
+            //System.out.println(json);
+            for(String keyInfo : infoMovie){
+                htmlBody += keyInfo.replace("\"","") + "\n";
+            }
+            //System.out.println(htmlBody);
+            return htmlFirst + htmlBody + htmlSecond;
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
     /**
-     *
+     * It's HTML string, use to view for the user
      * @return
      */
     public static  String indexResponse(){
