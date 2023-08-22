@@ -1,8 +1,20 @@
 # Buscador de Películas
-Por medio del repositorio, encontramos un buscador de películas, gracias a una API, la cual, nos permite buscar y dar la información de dicha película
+Por medio del repositorio, encontramos un buscador de películas, gracias a una API, la cual, nos permite buscar y dar la información de dicha película, todo esto se visualiza desde un browser.
 
 ## Elaborado por:
 Jose Ricardo Olarte Pardo
 
 ### Diseño de la arquitectura
 ![arquitectura](https://github.com/Ricardo-Olarte/AREP/blob/main/Movie_Browser_T1/images/arq.png)
+
+La aplicación, como ya se mencionó, muestra los datos correspondientes de la película que el usuario desee consultar, por medio de su título.
+
+### Requisitos Previos
+* Navegador (Chrome, Firefox, Safari)
+* IDE de Java (Netbeans, Intellij, etc)
+
+### Ejecución
+Para consultar desde local
+> localhost:42800
+Abriendo desde el browser consultamos localhost:42800
+
