@@ -102,8 +102,8 @@ public class HttpServer {
                 + "    </head>\n"
                 + "    <style>\n"
                 + "    body {background-color: black;color: white;display:flex;justify-content:center;flex-direction:column;align-items:center}"
-                + "    .input-button{" +
-                "background-color: white;padding:4px 6px;border-radius:8px}"
+                + "    .input-button{"
+                + "    background-color: white;padding:4px 6px;border-radius:8px}"
                 + "    #getrespmsg{max-width:768px;margin:0 auto}"
                 + "    </style>\n"
                 + "    <body>\n"
