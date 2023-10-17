@@ -1,0 +1,3 @@
+org\acme\security\jwt\GenerateToken.class
+org\acme\security\jwt\TokenSecuredResourceTest.class
+org\acme\security\jwt\TokenSecuredResourceIT.class
